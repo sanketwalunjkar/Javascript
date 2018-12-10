@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+        <p id="help">Helpful notes will appear here</p>
+        <p>E-mail: <input type="text" id="email" name="email"></p>
+        <p>Name: <input type="text" id="name" name="name"></p>
+        <p>Age: <input type="text" id="age" name="age"></p>
+
+    <script>
+        // Lexical scopeing
+        function init() {
+            var name = "Sanket";
+            function displayName() {
+                alert (name);
+            } 
+            displayName();
+        } init ();
+
+        // closure
+            // example 1
+            function myFun() {
+                var name = "Jhon"
+                function visiableName() {
+                    alert(name);
+                }
+                return visiableName;
+            }
+            var myFunRun = myFun();
+            myFunRun();
+            
+            // example 2
+            function makeAdder(x) {
+                return function(y) {
+                    return x + y; 
+                }
+            }
+
+            var add5 = makeAdder(5),
+                add10 = makeAdder(10);
+
+            alert(add5(2));
+            alert(add10(5));   
+
+        // closure in loop
+
+        function showhelp(help){
+            document.getElementById('help').innerHTML = help; 
+        }     
+
+        function helpcallback(help) {
+            return function() {
+                showhelp(help);
+            }
+        }
+
+        function setuphelp(){
+            var helptext = [
+                    {'id': 'email', 'help': 'Your e-mail address'},
+                    {'id': 'name', 'help': 'Your full name'},
+                    {'id': 'age', 'help': 'Your age (you must be over 16)'}
+                ];
+            for (var i = 0; i < helptext.length; i++) {
+                var item = helptext[i];
+                document.getElementById(item.id).onfocus = helpcallback(item.help);
+            }     
+        } setuphelp();
+
+    </script>
+</body>
+</html>
