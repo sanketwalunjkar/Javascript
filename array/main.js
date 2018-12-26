@@ -77,7 +77,7 @@ log(resultantArray.map(item => item.length)
   .filter(item => item > 5)); //  [7, 8, 7, 3, 4, 6]
 
 // Array of objects
-let something = {
+let testObject = {
 	"id": "0001",
 	"type": "donut",
 	"name": "Cake",
@@ -104,4 +104,4 @@ let something = {
 		]
 }
 
-log(something.batters.batter.map(obj => obj))
+log(testObject.batters.batter.map(obj => obj))
