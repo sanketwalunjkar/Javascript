@@ -1,55 +1,33 @@
-// Lexical scopeing
+const log = console.log;
+// Lexical Scoping
 (function () {
-  var name = 'Sanket';
+  const name = 'Sanket';
   function displayName() {
-    console.log(name);
+    log(name);
   }
   displayName();
 })();
 
 // closure example 1
-function myFun() {
-  var name = 'John';
-  function visibleName() {
-    console.log(name);
-  }
-  return visibleName;
-}
-
-myFun()();
+const myFun = name => log(name);
+myFun('John');
 
 // closure example 2
-function makeAdder(x) {
-  return function (y) {
-    return x + y;
-  }
-}
+const makeAdder = x => y => x + y;
 
-const callAdder = makeAdder(5)(2);
-const callAdder2 = makeAdder(12)(3);
-console.log(callAdder, callAdder2);
+log(makeAdder(5)(2), makeAdder(12)(3));
 
 // closure in loop
-function showHelp(help) {
-  document.getElementById('help').innerText = help;
-}
+const showHelp = help => document.getElementById('help').innerText = help;
 
-function helpCallBack(help) {
-  return function () {
-    showHelp(help);
-  }
-}
+const helpCallBack = help => showHelp(help);
 
-document.addEventListener('DOMContentLoaded', function () {
-  var helptext = [
+document.addEventListener('DOMContentLoaded', () => {
+  const helptext = [
     { 'id': 'email', 'help': 'Your e-mail address' },
     { 'id': 'name', 'help': 'Your full name' },
     { 'id': 'age', 'help': 'Your age (you must be over 16)' }
   ];
 
-  helptext.forEach(function (item) {
-    document.getElementById(item.id).addEventListener('focus', function () {
-      helpCallBack(item.help)();
-    });
-  });
+  helptext.forEach(item => document.getElementById(item.id).addEventListener('focus', () => helpCallBack(item.help)));
 });
