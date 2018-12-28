@@ -8,7 +8,7 @@ log(`using const answer ` + name); // sanket
 log(`using var answer ` + a); // 5 (using var)
 log('using let answer ', b); // 5 (using let) 
 
-if(true){
+if (true) {
   const name = `test`;
   var a = 7;
   let b = 15;

@@ -1,10 +1,10 @@
 const log = console.log;
-var sports = ["cricket", "football", "pool", "kabaddi"]; //declare array
+let sports = ["cricket", "football", "pool", "kabaddi"]; //declare array
 log(sports[0]); // print cricket
 log(sports[4]); // undefined
 
 
-var last = sports[sports.length - 1];
+let last = sports[sports.length - 1];
 log(last); // O/P kabaddi
 
 // looping array
@@ -13,32 +13,32 @@ sports.forEach(function (item, index, array) {
 });
 
 // add to the end of an array
-var addSport = sports.push("kho-kho");
+let addSport = sports.push("kho-kho");
 log(sports);
 
 // remove form the end of an array
-var lastRemove = sports.pop(); // remove kho-kho
+let lastRemove = sports.pop(); // remove kho-kho
 log(sports);
 
 // remove form the front of an array
-var firstRemove = sports.shift(); //remove cricket
+let firstRemove = sports.shift(); //remove cricket
 log(sports);
 
 // add to the front of an array
-var addFront = sports.unshift("cricket");
+let addFront = sports.unshift("cricket");
 log(sports);
 
 // find index of an item in the array
-var position = sports.indexOf("pool");
+let position = sports.indexOf("pool");
 log(position); // 2
 
 // remove an item by index position
-var removedItem = sports.splice(position, 1);
+let removedItem = sports.splice(position, 1);
 log(removedItem); // pool
 log(sports); // 'cricket', 'football', 'kabaddi'
 
 // copy an array
-var sameCopy = sports.slice();
+let sameCopy = sports.slice();
 log(sameCopy);
 
 // join
@@ -55,7 +55,7 @@ log(filterItem('k')); // ["cricket", "kabaddi"]
 log(filterItem('oo')); // ["football"]
 
 // concat
-var equ = ["bat", "boll", "sticks"];
+let equ = ["bat", "boll", "sticks"];
 const resultantArray = sports.concat(equ);
 log(resultantArray); // ["cricket", "football", "kabaddi", "bat", "boll", "sticks"]
 
@@ -65,7 +65,7 @@ log(resultantArray.includes('ket')); // false
 log(resultantArray.includes('Cricket')); // false
 
 // split
-var str = "sanket",
+let str = "sanket",
   res = str.split('')
 log(res); //  ["s", "a", "n", "k", "e", "t"]
 
