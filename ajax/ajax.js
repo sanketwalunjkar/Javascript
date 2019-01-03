@@ -1,28 +1,20 @@
-const xhttp = new XMLHttpRequest(),
-  log = console.log,
-  tableElement = document.getElementById('demo'),
-  tableBody = document.createElement('tbody'),
-  tbody = tableElement.appendChild(tableBody);
+const xhttp = new XMLHttpRequest();
 xhttp.open('GET', 'https://jsonplaceholder.typicode.com/todos/', true);
 xhttp.onreadystatechange = () => {
   if (xhttp.readyState === 4 && xhttp.status == 200) {
     const response = JSON.parse(xhttp.responseText);
-      response.map(item => {
-        if (item.completed === false) {
-          tableData(item);
-        }
-      });
+    response.map(item => {
+      item.completed === true ? createTable(item, 'completed') : createTable(item, 'incomplete');
+    });
   } else {
-    log(xhttp.readyState)
+    console.log(xhttp.readyState)
   }
 }
 xhttp.send();
 
-
-let tableData = (item) => {
+const createTable = (item, selector) => {
   let selectElement = document.createElement('tr'),
-    liElement = document.createElement('td');
-  liElement.innerHTML = item.title;
-  selectElement.appendChild(liElement);
-  tbody.appendChild(selectElement);
+    tableElement = document.getElementById(selector);
+  selectElement.innerHTML = `<td>${item.title}</td> <td>${item.completed}</td>`;
+  tableElement.appendChild(selectElement);
 }
