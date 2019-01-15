@@ -64,7 +64,15 @@ log( "num" <= 1 ); // false
 log( undefined == null);// true
 log( undefined == NaN);// false
 
+log(undefined < null); //false
+log(undefined > undefined);//false
+log(undefined == undefined);//true
 
+log(null < 0);//false
+log(undefined < 0);//false
+log(null <= 0);//true
 
-
+log('1000' < '200');//true
+log('1000' < '0200');//false
+log('7890' < '890');//true
 
