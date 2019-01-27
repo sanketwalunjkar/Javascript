@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+    <script>
+        const getValue = prompt('Enter your value');
+        if (getValue === null) {
+            alert('please enter value and click ok (use for null)');
+        } else {
+            if (getValue == '') {
+                alert('Please enter proper digits (direct click "ok")');
+            } else if (getValue == ' ') {
+                alert('Please enter proper digits (use space)');
+            } else if ( getValue >= 0 ) {
+                valueType = Number(getValue);
+                if (valueType > 100) {
+                    alert('Please enter proper digits (use max value)');
+                } else if (valueType == 100) {
+                    alert('Gread A+');
+                } else if (valueType >= 90) {
+                    alert('Gread A');
+                } else if (valueType >= 80) {
+                    alert('Gread B');
+                } else if (valueType >= 70) {
+                    alert('Gread C');
+                } else if (valueType >= 60) {
+                    alert('Gread D');
+                } else if (valueType >= 50) {
+                    alert('Gread E');
+                } else if (valueType >= 35) {
+                    alert('Gread E');
+                } else (valueType <= 34) {
+                    alert('Fail');
+                }
+            } else {
+                alert('Please enter proper digits (use char)');    
+            }
+        }
+    </script>
+</body>
+</html>

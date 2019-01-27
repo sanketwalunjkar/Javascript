@@ -1,0 +1,15 @@
+.flex{
+  display: flex;
+  justify-content: space-evenly;
+}
+#completed,
+#incomplete {
+  border-collapse: collapse;
+  width: 400px;
+}
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 5px;
+}

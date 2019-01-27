@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        section,
+        .hide{
+            display: none;
+        }
+        .flex{
+            display: flex;
+        }
+        .flex > div{
+            flex: 1 1 25%;
+        }
+        .flex > div > img{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <a href="#home" data-name='home'>Home</a>
+        <a href="#about" data-name='about'>About</a>
+        <a href="#contact" data-name='contact'>Contact</a>
+        <a href="#help" data-name='help'>Help</a>
+    </div>
+    <section id="home">
+        <h2>home page</h2>
+    </section>
+    <section id="about">
+        <h2>about page</h2>
+    </section>
+    <section id="contact">
+        <h2>contact page</h2>
+    </section>
+    <section id="help">
+        <h2>help page</h2>
+    </section>
+
+    <div class="flex">
+        <div><img src="img-1.jpg"></div>
+        <div><img src="img-2.jpg"></div>
+        <div><img src="img-3.jpg"></div>
+    </div>
+    <script src="tabing.js"></script>
+</body>
+</html>
