@@ -43,5 +43,13 @@
             }
         }
     </script>
+    <script>
+        const getTernaryValue = prompt('Enter your value for Ternary');
+        (getTernaryValue === null) ? alert('please enter value and click ok (use for null)') :  
+            (getTernaryValue == '') ? alert('Please enter proper digits (direct click "ok")') :
+            (getTernaryValue == ' ') ? alert('Please enter proper digits (use space)') :
+            (getTernaryValue >= 0 ) ? (getTernaryValue > 100) ? alert('max value') : alert('currect value') :
+            alert('Please enter proper digits (use char)');
+    </script>
 </body>
 </html>
