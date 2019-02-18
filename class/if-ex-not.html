@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <script>
+    // example 1
+    let color = prompt('Enter color');  
+    if (color == "red" || color == "blue" || color == "green"){
+      alert('colorful');
+    } else{
+      alert('black & white');
+    }
+
+    // example 2
+    let user = prompt('Enter password'),
+      password = '123';
+    if (user != password){
+      alert('your password is wrong')
+    }
+
+    // example 3
+    let name = prompt('Enter your name');
+    if (!name){
+      alert('Please enter name');
+    }
+
+    // example 4
+    let letter = prompt('what use for writing?');
+    if (letter == 'pencile' || letter == 'pen'){
+      alert(`ok, your using ${letter}`);
+    }
+
+  </script>
+</body>
+</html>
