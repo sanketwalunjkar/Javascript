@@ -6,10 +6,10 @@ const log = console.log;
     log(name);
   }
   displayName();
-})();
+})(); // Sanket
 
 // closure example 1
-const myFun = name => log(name);
+const myFun = name => log(name); // Jhon
 myFun('John');
 
 // closure example 2

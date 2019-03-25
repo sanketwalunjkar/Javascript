@@ -1,0 +1,67 @@
+.flex{
+  display: flex;
+}
+.digit{
+  margin: 0 5px;
+}
+.topbox,
+.bottombox{
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent;
+}
+.bottombox{
+  border-top: none;
+}
+.one .topbox,
+.one .bottombox,
+.four .bottombox,
+.seven .bottombox{
+  border-right-color: green;
+}
+.two .topbox,
+.three .topbox{
+  border-top-color: green;
+  border-right-color: green;
+  border-bottom-color: green;
+}
+.two .bottombox{
+  border-left-color: green;
+  border-bottom-color: green;
+}
+.three .bottombox,
+.five .bottombox,
+.nine .bottombox{
+  border-right-color: green;
+  border-bottom-color: green;
+}
+.four .topbox{
+  border-left-color: green;
+  border-bottom-color: green;
+  border-right-color: green;
+}
+.five .topbox,
+.six .topbox{
+  border-top-color: green;
+  border-left-color: green;
+  border-bottom-color: green;
+}
+.six .bottombox,
+.eight .bottombox,
+.eight .topbox,
+.nine .topbox,
+.zero .bottombox{
+  border-color: green;
+}
+.seven .topbox{
+  border-top-color: green;
+  border-right-color: green;
+}
+.zero .topbox{
+  border-top-color: green;
+  border-left-color: green;
+  border-right-color: green;
+}
