@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  Hoisting
+  <script>
+    console.log(a);
+    var a;
+    a = 5;
+    const e = 1;
+    let g = 30;
+    // console.log(xy);
+    console.log(a);
+    function print() {
+      console.log(b);
+      xy = 8;
+      const e = 15;
+      let g = 35;
+      var b;
+      let c; 
+      b = 10;
+      c = 20;
+      d = 20 * 2;
+      return d; 
+      console.log(b, c); // not exicute
+      var xy;  // not exicute
+    }
+    // let g = 33; // SyntaxError: Identifier 'g' has already been declared
+    // e = 25; // TypeError: Assignment to constant variable.
+    print();
+
+  </script>
+</body>
+</html>

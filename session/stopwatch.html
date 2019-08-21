@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>stopwatch</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    #error {color: red;}
+  </style>
+</head>
+<body>
+<div id="showCount">00:00</div>
+<div>
+  <button id="start">Start</button>
+  <button id="stop" disabled>Stop</button>
+  <button id="restart" disabled>Restart</button>
+  <button id="reset"  disabled>Reset</button>
+</div>
+<div id="error"></div>
+<script>
+  function Stopwatch () {
+    let runTime = false;
+    this.handleTime;
+    this.startCount = 0;
+    this.dispalyElement = document.getElementById('showCount');
+    this.errorElement = document.getElementById('error');
+    this.showCount = () => {
+      this.startCount += 1;
+      this.startCount < 10 ? dispalyElement.innerHTML = `00:0${startCount}` : dispalyElement.innerHTML = `00:${startCount}`;  
+    };
+    this.errorText = (getRunTime) => {
+      if (getRunTime) { 
+        errorElement.innerHTML = 'Allready start';
+      } else {
+        errorElement.innerHTML = '';
+      }
+    }
+    this.start = () => {
+      if (runTime){
+        this.errorText(true);
+        document.getElementById('stop').removeAttribute('disabled');
+        return false;
+      }
+      this.handleTime = setInterval(this.showCount , 1000);
+      runTime = true;
+      document.getElementById('restart').removeAttribute('disabled');
+      document.getElementById('reset').removeAttribute('disabled');
+      document.getElementById('stop').removeAttribute('disabled');
+    };
+
+    this.stop = function () {
+        errorText(false);
+        clearInterval(handleTime);
+        handleTime = 0;
+        document.getElementById('stop').setAttribute('disabled', 'true');
+        runTime = false;
+      };
+    
+    this.reset = function () {
+      errorText(false);
+      clearInterval(handleTime); 
+      startCount = 0;
+      handleTime = 0;
+      runTime = false;
+      dispalyElement.innerHTML = '00:00';
+    };
+
+    this.restart = function () {
+      errorText(false);
+      clearInterval(handleTime); 
+      startCount = 0;
+      handleTime = 0;
+      handleTime = setInterval(showCount , 1000);
+      runTime = true;
+    };
+    return {
+      start,
+      stop,
+      reset,
+      restart
+    }
+  }
+</script>
+</body>
+</html>
+
+
