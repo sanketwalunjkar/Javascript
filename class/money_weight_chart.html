@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>chart</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    .wrap{
+      display: flex;
+      justify-content: space-around;
+    }
+    table{
+      border: 1px solid black;
+      text-align: center;
+      margin: 0 auto;
+      border-collapse: collapse;
+    }
+    td, th {
+      border: 1px solid black;
+      width: 100px;
+    }
+  </style>
+</head>
+<body>
+    <div style="display: none;">
+      <form id="" name="">
+        <label>Per kg Amount</label><input type="number" id="" placeholder="" />
+        <label>Grams per kg</label><input type="number" id="" placeholder="" />
+        <label>Money and gram</label><input type="number" id="" placeholder="" />
+        <label>Steps</label><input type="number" id="" placeholder="" />
+      </form>
+    </div>
+    <div class="wrap">
+      <div>
+        <h1> MONEY : WEIGHT CHART </h1>
+        <table>
+          <thead>
+            <tr>
+              <th>Money</th>
+              <th>Weight</th>
+            </tr>
+          </thead>
+          <tbody id="moneyWeightWrap">
+          </tbody>
+        </table>
+      </div>
+      <div>
+          <h1> WEIGHT : MONEY CHART </h1>
+          <table>
+            <thead>
+              <tr>
+                <th>Weight</th>
+                <th>Money</th>
+              </tr>
+            </thead>
+            <tbody id="weightMoneyWrap">
+            </tbody>
+          </table>
+      </div>
+    </div>
+
+    <script>
+      const PER_KG_AMOUNT = 520,
+        GRAMS_PER_KG = 1000,
+        MONEY_AND_GRAMS_LIMIT = 10000,
+        STEP_FOR_MONEY_AND_GRAMS = 25,
+        ITERATION_COUNT = MONEY_AND_GRAMS_LIMIT / STEP_FOR_MONEY_AND_GRAMS,
+        moneyWeightbody = document.getElementById('moneyWeightWrap'),
+        weightMoneyBody = document.getElementById('weightMoneyWrap'),
+        conversion = (value, type) => {
+          for (let i = 0; i < ITERATION_COUNT; i++) {
+            value += STEP_FOR_MONEY_AND_GRAMS;
+            if ( type === 'weight') {
+              let gramsForMoney = (value * GRAMS_PER_KG) / PER_KG_AMOUNT;
+              moneyWeightbody.innerHTML += (`<tr><td>${value}</td><td>${Math.floor(gramsForMoney)}</td></tr>`);
+            } else {
+              let moneyForGrams = (PER_KG_AMOUNT * value) / GRAMS_PER_KG;
+              weightMoneyWrap.innerHTML += (`<tr><td>${value}</td><td>${Math.floor(moneyForGrams)}</td></tr>`);
+            }
+          }
+        };
+      conversion(0, 'weight');
+      conversion(0, 'money');
+    </script>
+  </body>
+</html>

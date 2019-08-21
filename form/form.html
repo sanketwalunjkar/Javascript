@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>form element</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    #error{
+      display: none;
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <input type="text" id="input-num"/>
+  <div style="margin-top:50px;">
+    <input type="file" id="input-file" style="display:none;"/>
+    <button id="selectBtn" onclick="document.getElementById('input-file').click();">Open</button>
+    <span id="file-path" data-path="">No File Chosen</span>
+    <div id="error">Choose only xls file</div>
+  </div>
+  <script>
+    const inputElement = document.getElementById('input-num'),
+      inputFileElement = document.getElementById('input-file'),
+      selectBtn = document.getElementById('selectBtn'),
+      errorElement = document.getElementById('error');
+    let currentFilePath = '',
+      ajaxCall = false;
+    inputElement.addEventListener('keypress', 
+      function (e) {
+        let elementValue = String.fromCharCode(e.which),
+          regExpValue = /[0-9]/;
+        if ( !(regExpValue.test(elementValue)) || inputElement.value.length >= 3){
+          e.preventDefault();
+        }
+      }
+    )
+    inputFileElement.addEventListener('change', (e) => {
+      let selectFile = inputFileElement.files[0].name,
+        regex = /xls/,
+        filePathElement = document.getElementById('file-path'),
+        fileExtention = selectFile.substr(selectFile.lastIndexOf('.') + 1);
+        // printFileName = selectFile.substr(selectFile.lastIndexOf('\\') + 1);
+      if (fileExtention.match(regex)){
+        if (currentFilePath !== selectFile) {
+          ajaxCall = true;
+        }
+        filePathElement.innerText = selectFile;
+        filePathElement.setAttribute('data-path', selectFile);
+        currentFilePath = selectFile;
+      } else {
+        e.preventDefault();
+        ajaxCall = false;
+        currentFilePath = filePathElement.getAttribute('data-path');
+        errorElement.style.display = 'block';
+        setTimeout(() => {
+          errorElement.style.display = 'none';
+        }, 3000);
+      }
+      // ajax call for send 'currentFilePath' variable name
+      if (ajaxCall) {
+        console.log('Yes');
+      }
+    });
+  </script>
+</body>
+</html>
+<!-- 
+const PER_KG_AMOUNT = 500;
+const GRAMS_PER_KG = 1000;
+const MONEY_AND_GRAMS_LIMIT = 1000;
+const STEP_FOR_MONEY_AND_GRAMS = 25;
+const ITERATION_COUNT = MONEY_AND_GRAMS_LIMIT / STEP_FOR_MONEY_AND_GRAMS;
+console.log('----------------------------------------------------------------');
+console.log('--------------------- MONEY : WEIGHT CHART ---------------------');
+console.log('----------------------------------------------------------------');
+let moneyValue = 0;
+for (let i = 0; i < ITERATION_COUNT; i++) {
+  moneyValue += STEP_FOR_MONEY_AND_GRAMS;
+  let gramsForMoney = (moneyValue * GRAMS_PER_KG) / PER_KG_AMOUNT;
+  console.log(`${moneyValue} : ${Math.floor(gramsForMoney)}`);
+}
+console.log('----------------------------------------------------------------');
+console.log('--------------------- WEIGHT : MONEY CHART ---------------------');
+console.log('----------------------------------------------------------------');
+let gramValue = 0;
+for (let i = 0; i < ITERATION_COUNT; i++) {
+  gramValue += STEP_FOR_MONEY_AND_GRAMS;
+  let moneyForGrams = (PER_KG_AMOUNT * gramValue) / GRAMS_PER_KG;
+  console.log(`${gramValue} : ${Math.floor(moneyForGrams)}`);
+} -->
