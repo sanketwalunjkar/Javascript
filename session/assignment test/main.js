@@ -69,6 +69,20 @@ const string_to_array = (name) => {
 
 // 6. Write a JavaScript program which iterates the integers from 1 to 100. But for multiples of three print "Fizz" instead of the number and for the multiples of five print "Buzz".For numbers which are multiples of both three and five print "FizzBuzz"
 
+let fizz = [], buzz = [],fizzBuzz = []; 
+for(let j = 1;j <= 100;j++){
+  if( j % 3 == 0 && j % 5 == 0){
+    fizzBuzz.push(j);
+  } else if ( j % 3 == 0){
+    fizz.push(j);
+  } else if ( j % 5 == 0){
+    buzz.push(j);
+  }
+}
+document.getElementById('printNum').innerHTML = `
+        <h4>Fizz number</h4><p>${fizz}</p>
+        <h4>Buzz number</h4><p>${buzz}</p>
+        <h4>FizzBuzz number</h4><p>${fizzBuzz}</p>`;
 
 // 7.  Write a JavaScript function that reverse a number.
 // Example x = 32243;
@@ -83,3 +97,11 @@ console.log(Number(finalStr));
 // 8. Write a JavaScript function that accepts a string as a parameter and find the longest word within the string.
 // Example string: 'Web Development Tutorial'
 // Expected Output: 'Development'
+
+const longStr = (userString) => {
+  let sentence = userString;
+  sentence.split(" ");
+  let sentenceSplit = sentence.split(" "),
+  largeWrd = sentenceSplit.sort();
+  console.log(largeWrd[0]);
+}
