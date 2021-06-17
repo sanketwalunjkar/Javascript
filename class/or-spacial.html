@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <!-- <script>
+    let subjectData;
+    // const subjectData = {
+    //   marathi: 25,
+    //   english: 55,
+    //   hindi: 45,
+    //   maths: 80,
+    //   science: {
+    //     part1: 38,
+    //     part2: 28
+    //   }
+    // };
+
+    let defaultSubData;
+    // const defaultSubData = {
+    //   marathi: 35,
+    //   english: 35,
+    //   hindi: 35,
+    //   maths: 35,
+    //   science: {
+    //     part1: 20,
+    //     part2: 20
+    //   }
+    // }
+    
+    const getData = subjectData || defaultSubData || {marathi: 'NA',english: 'NA',hindi: 'NA', maths: 'NA',science: 'NA'};
+    console.log(getData);
+
+  </script> -->
+  <script>
+    for (let i = 1; i <= 5; i++) {
+      let string="";
+    //let space="";
+        // for (let q = 5; q >= i; q--) {
+        //   space += " ";
+        // }
+        for (let j = 1; j <= i; j++) {
+          string += i;
+        }
+			  console.log(string);
+        // console.log(space + string);
+        string="";
+    }
+  // for(let i=1; i <= 5; i++)
+  //  {
+  //   for(let j=1; j<i; j++)
+  //     {
+  //       document.write(i);
+  //     }
+  //   document.write('<br/>');
+  //  }
+    let number = prompt('Enter 1 to 15 between number'),
+        even = '', 
+        odd = '';
+    for (let p = 1;p <= number;p++){
+      if (p % 2 == 0){
+        even += p + ',';
+      } else {
+        odd += p + ',';
+      }
+    }
+    console.log(`even numbers = ${even}`);
+    console.log(`odd numbers = ${odd}`);
+    var test = 10;
+    (() => {
+      const test = 15;
+        (() => {
+          // let test = 20;
+          console.log(test);
+          console.log(window.test);
+        })();
+    }) ();
+  </script>
+</body>
+</html>

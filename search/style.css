@@ -1,0 +1,22 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+.hide{
+  display: none;
+}
+.highlight{
+  background: #ff0;
+  color: #4a8f4a;
+}
+table {
+  border-collapse: collapse;
+  width: 90%;
+  margin: 20px auto 0;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
